@@ -1,0 +1,36 @@
+<html>
+  <head> </head>
+  <body style = "background-color: lightcyan;">
+    <h1>This is your index.html file and its working!!!!</h1>
+    <p id="random-color-text">
+      WoAfXJAlsdasdDsSNBvRjFuOpQzMewlaxdhkldfglma12351AxczxaqsMNABSDkhdfa
+    </p>
+    <script>
+      function rgbToHex(r, g, b) {
+        return (
+          "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+        );
+      }
+
+      function getRandomColor() {
+        return rgbToHex(
+          Math.floor(Math.random() * 255),
+          Math.floor(Math.random() * 255),
+          Math.floor(Math.random() * 255)
+        );
+      }
+
+      var textElement = document.getElementById("random-color-text");
+      var content = textElement.textContent;
+
+      textElement.innerHTML = "";
+
+      for (var i = 0; i < content.length; i++) {
+        var span = document.createElement("span");
+        span.textContent = content[i];
+        span.style.color = getRandomColor();
+        textElement.appendChild(span);
+      }
+    </script>
+  </body>
+</html>
